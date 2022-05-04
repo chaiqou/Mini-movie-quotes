@@ -1,11 +1,8 @@
 <?php
 
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ListingsController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-	return view('main');
-});
-
-Route::get('/listing', function () {
-	return view('listing');
-});
+Route::get('/', [HomeController::class, 'index']);
+Route::get('/listings', [ListingsController::class, 'index']);
