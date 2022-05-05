@@ -19,6 +19,7 @@ class QuoteFactory extends Factory
 	{
 		$moviesPath = Movie::all()->pluck('id')->toArray();
 		$imagePaths = ['images/matrix.jpg', 'images/taxi.jpg'];
+
 		return [
 			'quote'      => $this->faker->text(),
 			'image_path' => $this->faker->randomElement($imagePaths),
