@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Quote;
+
 class HomeController extends Controller
 {
 	public function index()
 	{
-		return view('home');
+		$quote = Quote::inRandomOrder()->first(); // get random quote
+
+		return view('home', ['quote' => $quote]);
 	}
 }

@@ -7,5 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Quote extends Model
 {
-    use HasFactory;
+	use HasFactory;
+
+	// Relationship to Movie
+
+	public function movie()
+	{
+		return $this->belongsTo(Movie::class);
+	}
 }

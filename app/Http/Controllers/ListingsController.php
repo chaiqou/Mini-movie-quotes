@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Movie;
+use App\Models\Quote;
+
 class ListingsController extends Controller
 {
-	public function index()
+	public function index(Movie $movie)
 	{
-		return view('listings');
+		$quote = Quote::get()->where('movie_id', '=', $movie->id);
+		return view('listings', ['quote' => $quote, 'movie' => $movie]);
 	}
 }

@@ -1,17 +1,17 @@
 <x-layout >
     <div class=" max-w-2xl p-16 m-auto text-center">
-        <img src="https://media.wired.com/photos/5ca648a330f00e47fd82ae77/16:9/w_1391,h_782,c_limit/Culture_Matrix_Code_corridor.jpg"
+        <img src="{{ asset($quote->image_path) }}"
              class="rounded-xl mt-24 mb-16 h-full min-w-full m-auto"
              width="700"
 
              />
 
-        <p class="whitespace-nowrap mb-14 text-2xl text-white ">
-            “Human beings are a disease, cancer of this planet.”
+    <p class="mb-14 text-2xl text-white ">
+            {{ $quote->quote }}
         </p>
 
-        <a href="{{ redirect(base_path().'/listings') }}" class="block text-white text-lg underline">
-            The Matrix
+        <a href="{{ route('movie', ['movie' => $quote->movie->id]) }}" class="block text-white text-lg underline">
+        {{ $quote->movie->title }}
         </a>
 
 
