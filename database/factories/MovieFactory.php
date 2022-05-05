@@ -16,10 +16,10 @@ class MovieFactory extends Factory
 	 */
 	public function definition()
 	{
-		$imagePaths = ['images/matrix.jpg', 'images/taxi.jpg'];
+		$imagePaths = ['images/matrix.jpg', 'images/taxi.jpg', 'images/nobody.jpg', 'images/joker.jpg'];
 
 		return [
-			'title'      => $this->faker->word(),
+			'title'      => $this->faker->sentence(),
 			'image_path' => $this->faker->randomElement($imagePaths),
 		];
 	}

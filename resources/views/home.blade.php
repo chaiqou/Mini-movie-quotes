@@ -1,6 +1,6 @@
 <x-layout >
     <div class=" max-w-2xl p-16 m-auto text-center">
-        <img src="{{ asset($quote->image_path) }}"
+        <img src="{{ asset($quote->movie->image_path) }}"
              class="rounded-xl mt-24 mb-16 h-full min-w-full m-auto"
              width="700"
 
