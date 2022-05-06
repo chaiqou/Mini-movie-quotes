@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\FilmController;
+use App\Http\Controllers\MovieController;
 use App\Http\Controllers\QuoteController;
 use App\Http\Controllers\SessionController;
 
@@ -9,11 +9,9 @@ use App\Http\Controllers\SessionController;
 Route::get('login', [SessionController::class, 'create']);
 Route::post('login', [SessionController::class, 'store']);
 
-// // admin
-// Route::get('dashboard', function () {
-// 	return view('admin.dashboard');
-// });
+// admin
+Route::get('movies/create', [MovieController::class, 'create'])->name('movies.create')->middleware('admin');
 
 // pages
-Route::get('/', [FilmController::class, 'index'])->name('home');
+Route::get('/', [MovieController::class, 'index'])->name('home');
 Route::get('/{movie}', [QuoteController::class, 'index'])->name('movie');
