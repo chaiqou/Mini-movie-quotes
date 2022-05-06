@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Movie;
 use App\Models\Quote;
 
-class ListingsController extends Controller
+class QuoteController extends Controller
 {
 	public function index(Movie $movie)
 	{

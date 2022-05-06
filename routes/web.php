@@ -1,8 +1,16 @@
 <?php
 
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ListingsController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FilmController;
+use App\Http\Controllers\QuoteController;
+use App\Http\Controllers\SessionController;
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/{movie}', [ListingsController::class, 'index'])->name('movie');
+// Log In
+Route::get('login', [SessionController::class, 'create']);
+Route::post('login', [SessionController::class, 'store']);
+
+// pages
+Route::get('/', [FilmController::class, 'index'])->name('home');
+Route::get('/{movie}', [QuoteController::class, 'index'])->name('movie');
+
+// admin

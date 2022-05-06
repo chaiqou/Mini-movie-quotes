@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Quote;
 
-class HomeController extends Controller
+class FilmController extends Controller
 {
 	public function index()
 	{
