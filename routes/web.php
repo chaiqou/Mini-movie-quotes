@@ -9,8 +9,11 @@ use App\Http\Controllers\SessionController;
 Route::get('login', [SessionController::class, 'create']);
 Route::post('login', [SessionController::class, 'store']);
 
+// // admin
+// Route::get('dashboard', function () {
+// 	return view('admin.dashboard');
+// });
+
 // pages
 Route::get('/', [FilmController::class, 'index'])->name('home');
 Route::get('/{movie}', [QuoteController::class, 'index'])->name('movie');
-
-// admin

@@ -1,4 +1,4 @@
-<x-layout >
+<x-layout>
    <a href="/login" class="text-white flex font-bold text-lg">Log In</a>
 
     <div class=" max-w-2xl p-16 m-auto text-center">
@@ -7,7 +7,7 @@
              width="700"
 
 />
-
+<x-languages />
     <p class="mb-14 text-2xl text-white ">
             {{ $quote->quote }}
         </p>
@@ -18,6 +18,6 @@
 
 
       </div>
+    </x-layout>
 
-</x-layout>
 
