@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminQuoteController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\QuoteController;
@@ -27,8 +28,9 @@ Route::middleware('admin')->group(function () {
 });
 
 // admin quotes
-	Route::get('/quotes/create', [QuoteController::class, 'create']);
-	Route::post('/quotes', [QuoteController::class, 'store']);
+	Route::get('/quotes', [AdminQuoteController::class, 'index']);
+	Route::get('/quotes/create', [AdminQuoteController::class, 'create']);
+	Route::post('/quotes', [AdminQuoteController::class, 'store']);
 
 // pages
 

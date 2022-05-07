@@ -16,9 +16,6 @@
                     @foreach ($movies as $movie)
                         <option value="{{ $movie->id }}">{{ $movie->title }}</option>
                     @endforeach
-
-
-
                 </select>
 
                 <x-form.error name='movie' />
