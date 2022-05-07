@@ -14,9 +14,9 @@ class MovieController extends Controller
 		return view('home', ['quote' => $quote]);
 	}
 
-	public function create()
+	public function create()  // create new movie
 	{
-		return view('movies.create');
+		return view('admin.movies.create');
 	}
 
 	public function store()
