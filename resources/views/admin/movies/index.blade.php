@@ -1,6 +1,6 @@
 <x-admin-layout>
     <!-- This example requires Tailwind CSS v2.0+ -->
-    <div class="px-4 sm:px-6 lg:px-8">
+    <div class="px-4 sm:px-6 lg:px-8 mt-6">
         <div class="sm:flex sm:items-center">
             <div class="sm:flex-auto">
                 <h1 class="text-xl font-semibold text-gray-900">Movies</h1>
@@ -23,7 +23,7 @@
                                         class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">
                                         Name</th>
                                     <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
-                                        Created at</th>
+                                        Updated At</th>
                                     <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-6">
                                         <span class="sr-only">Edit</span>
                                     </th>
@@ -50,7 +50,7 @@
                                                 </div>
                                         </td>
                                         <td class="whitespace-nowrap flex-shrink-0 px-3 py-4 text-sm text-gray-500">
-                                            <div class="text-gray-500">{{ $movie->created_at }}</div>
+                                            <div class="text-gray-500">{{ $movie->updated_at }}</div>
 
                                         </td>
 
@@ -59,10 +59,19 @@
                                             <a href="/movies/{{ $movie->id }}/edit"
                                                 class="text-indigo-600 hover:text-indigo-900">Edit</a>
                                         </td>
+                                        <td
+                                            class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+                                            <form action="/movies/{{ $movie->id }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button class="text-red-600 hover:text-red-900">Delete</button>
+                                            </form>
+                                        </td>
+
                                     </tr>
                                 @endforeach
 
-                                <!-- More people... -->
+
                             </tbody>
                         </table>
                     </div>

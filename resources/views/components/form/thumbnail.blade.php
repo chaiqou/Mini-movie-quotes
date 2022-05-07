@@ -6,7 +6,7 @@
     </label>
 
     <input class="border rounded-xl border-gray-600 p-2 w-full" type='file' name='{{ $name }}'
-        id='{{ $name }}' value="{{ old($name) }}" required>
+        id='{{ $name }}' value="{{ old($name) }}" {{ $attributes(['value' => old($name)]) }}>
 
     @error($name)
         <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
