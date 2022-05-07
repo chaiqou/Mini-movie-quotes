@@ -22,7 +22,7 @@ Route::middleware('admin')->group(function () {
 	Route::get('/movies/create', [AdminController::class, 'create']);
 	Route::post('/movies', [AdminController::class, 'store']);
 	Route::delete('/movies/{movie}', [AdminController::class, 'destroy']);
-	Route::patch('/movies/{movie}', [AdminController::class, 'update']);
+	Route::put('/movies/{movie}', [AdminController::class, 'update']);
 	Route::get('/movies/{movie}/edit', [AdminController::class, 'edit']);
 });
 
