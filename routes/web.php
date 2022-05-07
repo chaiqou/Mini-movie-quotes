@@ -15,7 +15,7 @@ use App\Http\Controllers\SessionController;
 	Route::get('login', [SessionController::class, 'create']);
 	Route::post('login', [SessionController::class, 'store']);
 
-// admin
+// admin movies
 
 Route::middleware('admin')->group(function () {
 	Route::get('/movies', [AdminController::class, 'index']);
@@ -25,6 +25,10 @@ Route::middleware('admin')->group(function () {
 	Route::put('/movies/{movie}', [AdminController::class, 'update']);
 	Route::get('/movies/{movie}/edit', [AdminController::class, 'edit']);
 });
+
+// admin quotes
+	Route::get('/quotes/create', [QuoteController::class, 'create']);
+	Route::post('/quotes', [QuoteController::class, 'store']);
 
 // pages
 

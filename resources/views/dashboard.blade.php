@@ -10,17 +10,28 @@
                             src="https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2056&q=80"
                             alt="">
                         <div class="ml-3">
-                            <a href="movies/create">New Movie</a>
-                            <p class="text-sm text-gray-500">add new movies here</p>
+                            <a href="movies">All Movie</a>
+                            <p class="text-sm text-gray-500">check all movies</p>
                         </div>
                     </li>
+
                     <li class="py-4 flex">
                         <img class="h-10 w-10 rounded-full"
                             src="https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2056&q=80"
                             alt="">
                         <div class="ml-3">
-                            <a href="movies">All Movie</a>
-                            <p class="text-sm text-gray-500">check all movies</p>
+                            <a href="movies/create">New Movie</a>
+                            <p class="text-sm text-gray-500">add new movies here</p>
+                        </div>
+                    </li>
+
+                    <li class="py-4 flex">
+                        <img class="h-10 w-10 rounded-full"
+                            src="https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2056&q=80"
+                            alt="">
+                        <div class="ml-3">
+                            <a href="quotes/create">New Quote</a>
+                            <p class="text-sm text-gray-500">add new quote here</p>
                         </div>
                     </li>
 
