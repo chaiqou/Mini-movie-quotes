@@ -5,6 +5,9 @@ use App\Http\Controllers\MovieController;
 use App\Http\Controllers\QuoteController;
 use App\Http\Controllers\SessionController;
 
+// dashboard
+Route::view('dashboard', 'dashboard');
+
 // Log In
 Route::get('login', [SessionController::class, 'create']);
 Route::post('login', [SessionController::class, 'store']);
