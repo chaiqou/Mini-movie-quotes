@@ -1,8 +1,9 @@
 <x-admin-layout>
     <x-form.layout :heading="'Edit Movie: ' . $movie->title">
+
         <form method="POST" action='/movies/{{ $movie->id }}' enctype="multipart/form-data">
             @csrf
-            @method('PUT')
+            @method('PATCH')
             <x-form.input name='title' value='{{ $movie->title }}' />
             <x-form.thumbnail name='image_path' value='{{ $movie->image_path }}' />
             <img src="{{ asset('storage/' . $movie->image_path) }}"

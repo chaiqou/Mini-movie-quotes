@@ -24,7 +24,6 @@ class AdminController extends Controller
 		$attrubutes = request()->validate([
 			'title'      => ['required', Rule::unique('movies', 'title')],
 			'image_path' => 'required|image',
-			// 'quote' => ['required', Rule::unique('movies', 'quote')],
 		]);
 
 		$attrubutes['image_path'] = request()->file('image_path')->store('images'); // return path where the file stored
@@ -46,7 +45,7 @@ class AdminController extends Controller
 			'image_path' => 'image',
 		]);
 
-		if (asset($attrubutes['image_path']))
+		if (isset($attrubutes['image_path']))
 		{
 			$attrubutes['image_path'] = request()->file('image_path')->store('images');
 		}
