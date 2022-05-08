@@ -27,7 +27,7 @@
 
                     <li class="py-4 flex">
                         <img class="h-10 w-10 rounded-full"
-                            src="https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2056&q=80"
+                            src="https://images.pexels.com/photos/2681319/pexels-photo-2681319.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                             alt="">
                         <div class="ml-3">
                             <a href="quotes">All Quote</a>
@@ -37,7 +37,7 @@
 
                     <li class="py-4 flex">
                         <img class="h-10 w-10 rounded-full"
-                            src="https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2056&q=80"
+                            src="https://images.pexels.com/photos/2681319/pexels-photo-2681319.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                             alt="">
                         <div class="ml-3">
                             <a href="quotes/create">New Quote</a>

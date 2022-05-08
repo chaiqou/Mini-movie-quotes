@@ -1,5 +1,5 @@
 <x-layout>
-    <a href="/login" class="text-white flex font-bold text-lg">Log In</a>
+    <a href="/login" class="text-white flex font-bold text-lg">{{ __('message.login') }}</a>
 
     <div class=" max-w-2xl p-16 m-auto text-center">
         <img src="{{ asset('storage/' . $quote->movie->image_path) }}"
