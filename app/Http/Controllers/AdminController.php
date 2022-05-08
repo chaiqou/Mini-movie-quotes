@@ -45,6 +45,7 @@ class AdminController extends Controller
 			'title'      => 'required',
 			'image_path' => 'image',
 		]);
+
 		if (asset($attrubutes['image_path']))
 		{
 			$attrubutes['image_path'] = request()->file('image_path')->store('images');

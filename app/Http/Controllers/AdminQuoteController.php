@@ -30,4 +30,26 @@ class AdminQuoteController extends Controller
 
 		return redirect('/dashboard');
 	}
+
+	public function edit(Quote $quote)
+	{
+		return view('admin.quotes.edit', ['quote' => $quote]);
+	}
+
+	public function update(Quote $quote)
+	{
+		$attrubutes = request()->validate([
+			'quote'    => 'required',
+			'movie_id' => ['required', Rule::exists('movies', 'id')],
+		]);
+
+		$quote->update($attrubutes);
+		return redirect('/quotes');
+	}
+
+	public function destroy(Quote $quote)
+	{
+		$quote->delete();
+		return redirect(asset('/quotes'));
+	}
 }

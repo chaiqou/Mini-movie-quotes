@@ -31,6 +31,9 @@ Route::middleware('admin')->group(function () {
 	Route::get('/quotes', [AdminQuoteController::class, 'index']);
 	Route::get('/quotes/create', [AdminQuoteController::class, 'create']);
 	Route::post('/quotes', [AdminQuoteController::class, 'store']);
+    Route::delete('/quotes/{quote}', [AdminQuoteController::class, 'destroy']);
+	Route::put('/quotes/{quote}', [AdminQuoteController::class, 'update']);
+	Route::get('/quotes/{quote}/edit', [AdminQuoteController::class, 'edit']);
 
 // pages
 
