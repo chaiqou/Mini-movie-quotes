@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\QuoteStoreRequest;
+use App\Models\Movie;
 use App\Models\Quote;
 use Illuminate\Validation\Rule;
 
@@ -19,16 +21,18 @@ class AdminQuoteController extends Controller
 		return view('admin.quotes.create');
 	}
 
-	public function store()
+	public function store(QuoteStoreRequest $request)
 	{
-		$attributes = request()->validate([
-			'quote'    => 'required',
-			'movie_id' => ['required', Rule::exists('movies', 'id')],
-		]);
 
-		Quote::create($attributes);
 
-		return redirect('/dashboard');
+        $quote = new Quote;
+        $quote->movie_id = request()->movie_id;
+        $quote->setTranslations('quote', $request->input('quote'));
+        $quote->save();
+
+
+
+		return redirect('/');
 	}
 
 	public function edit(Quote $quote)
