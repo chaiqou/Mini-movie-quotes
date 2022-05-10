@@ -1,8 +1,9 @@
 <x-admin-layout>
     <x-form.layout :heading="'Edit Quote: ' . $quote->quote">
-        <form method="POST" action='/quotes/{{ $quote->id }}' enctype="multipart/form-data">
+        <form method="POST" action='/quotes' enctype="multipart/form-data">
             @csrf
             @method('PATCH')
+            <h1 class="font-bold text-center text-xl  mb-4 text-blue-900">{{ __('message.updatequote') }}</h1>
             <x-form.input name='title' value='{{ $quote->quote }}' />
             <x-form.container>
                 <x-form.label name='movie' />
@@ -20,7 +21,10 @@
 
                 <x-form.error name='movie' />
             </x-form.container>
-            <x-submit-button>Update</x-submit-button>
+            <x-submit-button>{{ __('message.update') }}</x-submit-button>
         </form>
     </x-form.layout>
 </x-admin-layout>
+
+
+{{-- /{{ $quote->id }} --}}
