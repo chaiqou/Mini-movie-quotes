@@ -10,8 +10,9 @@ class AdminController extends Controller
 {
 	public function index()
 	{
+
 		return view('admin.movies.index', [
-			'movies' => Movie::all(),
+			'movies' => Movie::latest()->paginate(10),
 		]);
 	}
 

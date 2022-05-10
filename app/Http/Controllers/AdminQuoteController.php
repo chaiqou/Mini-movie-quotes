@@ -12,8 +12,9 @@ class AdminQuoteController extends Controller
 {
 	public function index()
 	{
-		return view('admin.quotes.index', [
-			'quotes' => Quote::all(),
+
+        return view('admin.quotes.index', [
+			'quotes' => Quote::latest()->paginate(2),
 		]);
 	}
 

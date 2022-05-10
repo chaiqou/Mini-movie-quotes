@@ -74,6 +74,7 @@
 
 
                             </tbody>
+                            {{ $quotes->links() }}
                         </table>
                     </div>
                 </div>
