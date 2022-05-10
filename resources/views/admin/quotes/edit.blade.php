@@ -4,7 +4,9 @@
             @csrf
             @method('PATCH')
             <h1 class="font-bold text-center text-xl  mb-4 text-blue-900">{{ __('message.updatequote') }}</h1>
-            <x-form.input name='title' value='{{ $quote->quote }}' />
+            <x-form.input name='quote' value='{{ $quote->quote }}' />
+
+
             <x-form.container>
                 <x-form.label name='movie' />
 
@@ -19,7 +21,6 @@
                     @endforeach
                 </select>
 
-                <x-form.error name='movie' />
             </x-form.container>
             <x-submit-button>{{ __('message.update') }}</x-submit-button>
         </form>

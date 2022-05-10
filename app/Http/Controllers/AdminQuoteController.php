@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\QuoteStoreRequest;
 use App\Models\Movie;
 use App\Models\Quote;
+use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
 class AdminQuoteController extends Controller
@@ -49,8 +50,7 @@ class AdminQuoteController extends Controller
 
 		$quote->update($attrubutes);
         return redirect('/quotes');
-
-	}
+}
 
 	public function destroy(Quote $quote)
 	{
