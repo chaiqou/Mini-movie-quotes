@@ -32,6 +32,7 @@ return [
   'update' => 'Update',
   'updatemovie' => 'Update Movie',
   'updatequote' => 'Update Quote',
+  'logout' => 'Log Out',
 
 
 

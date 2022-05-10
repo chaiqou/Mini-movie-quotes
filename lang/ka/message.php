@@ -30,6 +30,7 @@ return [
   'update' => 'განახლება',
   'updatemovie' => 'გაანახლე ფილმი',
   'updatequote' => 'გაანახლე ციტატა',
+  'logout' => 'გასვლა',
 
 
 ];

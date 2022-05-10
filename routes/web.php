@@ -15,7 +15,8 @@ use GuzzleHttp\Middleware;
     // Log In
 
     Route::get('login', [SessionController::class, 'create'])->name('login.create');
-    Route::post('login', [SessionController::class, 'store'])->name('login.store');;
+    Route::post('login', [SessionController::class, 'store'])->name('login.store');
+    Route::post('logout', [SessionController::class, 'destroy'])->name('logout');
 
 
 	Route::group(['middleware' => 'check.locale'], function(){

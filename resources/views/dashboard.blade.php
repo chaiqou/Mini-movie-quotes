@@ -54,6 +54,11 @@
                 </ul>
 
             </main>
+
         </div>
+        <form class="flex justify-center" method="POST" action="/logout">
+            @csrf
+            <x-submit-button>{{ __('message.logout') }}</x-submit-button>
+        </form>
     </section>
 </x-admin-layout>
