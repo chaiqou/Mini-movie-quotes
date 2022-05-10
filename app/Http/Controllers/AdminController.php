@@ -4,13 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\MovieStoreRequest;
 use App\Models\Movie;
-use Illuminate\Validation\Rule;
 
 class AdminController extends Controller
 {
 	public function index()
 	{
-
 		return view('admin.movies.index', [
 			'movies' => Movie::latest()->paginate(10),
 		]);
@@ -23,17 +21,12 @@ class AdminController extends Controller
 
 	public function store(MovieStoreRequest $request)
 	{
+		$movie = new Movie;
+		$imagePath = request()->file('image_path')->store('images'); // return path where the file stored
+		$movie->image_path = $imagePath;
 
-
-
-
-        $movie = new Movie;
-        $imagePath = request()->file('image_path')->store('images'); // return path where the file stored
-        $movie->image_path = $imagePath;
-
-        $movie->setTranslations('title', $request->input('title'));
-        $movie->save();
-
+		$movie->setTranslations('title', $request->input('title'));
+		$movie->save();
 
 		return redirect('/quotes/create');
 	}
@@ -49,10 +42,6 @@ class AdminController extends Controller
 			'title'      => 'required',
 			'image_path' => 'image',
 		]);
-
-
-
-
 
 		if (isset($attrubutes['image_path']))
 		{

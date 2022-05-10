@@ -3,17 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\QuoteStoreRequest;
-use App\Models\Movie;
 use App\Models\Quote;
-use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
 class AdminQuoteController extends Controller
 {
 	public function index()
 	{
-
-        return view('admin.quotes.index', [
+		return view('admin.quotes.index', [
 			'quotes' => Quote::latest()->paginate(2),
 		]);
 	}
@@ -25,14 +22,10 @@ class AdminQuoteController extends Controller
 
 	public function store(QuoteStoreRequest $request)
 	{
-
-
-        $quote = new Quote;
-        $quote->movie_id = request()->movie_id;
-        $quote->setTranslations('quote', $request->input('quote'));
-        $quote->save();
-
-
+		$quote = new Quote;
+		$quote->movie_id = request()->movie_id;
+		$quote->setTranslations('quote', $request->input('quote'));
+		$quote->save();
 
 		return redirect('/');
 	}
@@ -50,8 +43,8 @@ class AdminQuoteController extends Controller
 		]);
 
 		$quote->update($attrubutes);
-        return redirect('/quotes');
-}
+		return redirect('/quotes');
+	}
 
 	public function destroy(Quote $quote)
 	{

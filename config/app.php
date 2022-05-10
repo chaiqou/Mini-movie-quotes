@@ -81,8 +81,8 @@ return [
 	|
 	*/
 
-	'locale' => 'en',
-    'available_locales' => ['en', 'ka',],
+	'locale'            => 'en',
+	'available_locales' => ['en', 'ka'],
 
 	/*
 	|--------------------------------------------------------------------------

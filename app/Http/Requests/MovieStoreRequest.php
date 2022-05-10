@@ -7,41 +7,33 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class MovieStoreRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     *
-     * @return bool
-     */
-    public function authorize()
-    {
-   
-        return Auth::check();
-    }
+	/**
+	 * Determine if the user is authorized to make this request.
+	 *
+	 * @return bool
+	 */
+	public function authorize()
+	{
+		return Auth::check();
+	}
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array<string, mixed>
-     */
-    public function rules()
-    {
-        $rules = [
+	/**
+	 * Get the validation rules that apply to the request.
+	 *
+	 * @return array<string, mixed>
+	 */
+	public function rules()
+	{
+		$rules = [
+			'title.en'   => 'required',
+			'image_path' => ['required', 'image'],
+		];
 
-            'title.en' => 'required',
-            'image_path' => ['required', 'image'],
+		foreach (config('app.available_locales') as $locale)
+		{
+			$rules['title.' . $locale] = 'string';
+		}
 
-        ];
-
-        foreach (config('app.available_locales') as $locale) {
-
-            $rules['title.' . $locale] = 'string';
-
-        }
-
-        return $rules;
-
-
-
-
-    }
+		return $rules;
+	}
 }

@@ -9,9 +9,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Quote extends Model
 {
 	use HasFactory;
-    use HasTranslations;
 
-    public $translatable = ['quote'];
+	use HasTranslations;
+
+	public $translatable = ['quote'];
 
 	// Relationship to Movie
 

@@ -32,12 +32,9 @@ class SessionController extends Controller
 		throw ValidationException::withMessages(['email' => 'Your provided credentials could not be verified.']);
 	}
 
-
-    public function destroy()
-    {
-        auth()->logout();
-        return redirect('/');
-    }
-
-
+	public function destroy()
+	{
+		auth()->logout();
+		return redirect('/');
+	}
 }
