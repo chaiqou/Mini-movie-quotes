@@ -48,6 +48,8 @@ class AdminQuoteController extends Controller
 		]);
 
 		$quote->update($attrubutes);
+        return redirect('/quotes');
+
 	}
 
 	public function destroy(Quote $quote)

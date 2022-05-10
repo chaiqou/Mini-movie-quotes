@@ -1,6 +1,6 @@
 <x-admin-layout>
     <x-form.layout :heading="'Edit Quote: ' . $quote->quote">
-        <form method="POST" action='/quotes' enctype="multipart/form-data">
+        <form method="POST" action='/quotes/{{ $quote->id }}' enctype="multipart/form-data">
             @csrf
             @method('PATCH')
             <h1 class="font-bold text-center text-xl  mb-4 text-blue-900">{{ __('message.updatequote') }}</h1>
@@ -25,6 +25,3 @@
         </form>
     </x-form.layout>
 </x-admin-layout>
-
-
-{{-- /{{ $quote->id }} --}}
