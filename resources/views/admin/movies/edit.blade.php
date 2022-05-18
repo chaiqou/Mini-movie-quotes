@@ -4,7 +4,7 @@
         <form method="POST" action='/movies/{{ $movie->id }}' enctype="multipart/form-data">
             @csrf
             @method('PATCH')
-            <h1 class="font-bold text-center text-xl  mb-4 text-blue-900">{{ __('message.updatemovie') }}</h1>
+            <h1 class="font-bold text-center text-xl  mb-4 text-blue-900">{{ __('message.update_movie') }}</h1>
 
 
             <x-form.input name='title' value='{{ $movie->title }}' />

@@ -12,7 +12,7 @@
                             src="https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2056&q=80"
                             alt="">
                         <div class="ml-3">
-                            <a class="text-lg text-gray-700 text-center" href="movies">{{ __('message.allmovie') }}</a>
+                            <a class="text-lg text-gray-700 text-center" href="movies">{{ __('message.all_movie') }}</a>
 
                         </div>
                     </li>
@@ -23,7 +23,7 @@
                             alt="">
                         <div class="ml-3">
                             <a class="text-lg text-gray-700 text-center"
-                                href="movies/create">{{ __('message.addmovie') }}</a>
+                                href="movies/create">{{ __('message.add_movie') }}</a>
 
                         </div>
                     </li>
@@ -34,7 +34,7 @@
                             alt="">
                         <div class="ml-3">
                             <a class="text-lg text-gray-700 text-center"
-                                href="quotes">{{ __('message.allquote') }}</a>
+                                href="quotes">{{ __('message.all_quote') }}</a>
 
                         </div>
                     </li>
@@ -45,7 +45,7 @@
                             alt="">
                         <div class="ml-3">
                             <a class="text-lg text-gray-700 text-center"
-                                href="quotes/create">{{ __('message.addquote') }}</a>
+                                href="quotes/create">{{ __('message.add_quote') }}</a>
 
                         </div>
                     </li>

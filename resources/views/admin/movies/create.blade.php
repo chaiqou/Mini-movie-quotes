@@ -2,12 +2,12 @@
     <x-form.layout heading='ADD NEW MOVIE'>
         <form method="POST" action='/movies' enctype="multipart/form-data">
             @csrf
-            <h1 class="font-bold text-center text-xl  mb-4 text-blue-900">{{ __('message.newmovie') }}</h1>
+            <h1 class="font-bold text-center text-xl  mb-4 text-blue-900">{{ __('message.new_movie') }}</h1>
 
             @foreach (config('app.available_locales') as $locale)
                 <x-form.container>
 
-                    <label for="title_{{ $locale }}">{{ __('message.titleen') }}
+                    <label for="title_{{ $locale }}">{{ __('message.title_en') }}
                         ({{ strtoupper($locale) }})
                     </label>
 

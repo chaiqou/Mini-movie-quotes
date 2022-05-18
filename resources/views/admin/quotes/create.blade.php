@@ -2,7 +2,7 @@
     <x-form.layout heading='ADD NEW QUOTE'>
         <form method="POST" action='/quotes' enctype="multipart/form-data">
             @csrf
-            <h1 class="font-bold text-center text-xl  mb-4 text-blue-900">{{ __('message.newquote') }}</h1>
+            <h1 class="font-bold text-center text-xl  mb-4 text-blue-900">{{ __('message.new_quote') }}</h1>
 
 
             <x-form.container>
@@ -37,7 +37,7 @@
             </x-form.container>
 
 
-            <x-submit-button>{{ __('message.addquote') }}</x-submit-button>
+            <x-submit-button>{{ __('message.add_quote') }}</x-submit-button>
         </form>
     </x-form.layout>
 </x-admin-layout>
