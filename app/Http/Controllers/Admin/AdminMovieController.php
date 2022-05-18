@@ -22,16 +22,17 @@ class AdminMovieController extends Controller
 
 	public function store(MovieStoreRequest $request)
 	{
-		$imagePath = request()->file('image_path')->store('images');
-		$movie = new Movie;
-		$movie->image_path = $imagePath;
-		$movie->setTranslations('title', $request->input('title'));
-		$movie->save();
 
-// Mo// vie::create()[]
-// ''// image_path=> ...,
-// ;t// i'title' => ...,
-// //
+         $movie = Movie::create([
+             'image_path' => request()->file('image_path')->store('images'),
+             'title' => $request->title,
+          ]);
+
+         $movie->setTranslations('title', $request->input('title'));
+
+
+
+
 
 
 		return redirect()->route('quote.create');
