@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Movie;
 use App\Models\Quote;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -18,7 +19,9 @@ class AdminQuoteController extends Controller
 
 	public function create()
 	{
-		return view('admin.quotes.create');
+        $dbmovies = Movie::all();
+
+		return view('admin.quotes.create', ['movies' => $dbmovies]);
 	}
 
 	public function store(QuoteStoreRequest $request)
@@ -34,7 +37,10 @@ class AdminQuoteController extends Controller
 
 	public function edit(Quote $quote)
 	{
-		return view('admin.quotes.edit', ['quote' => $quote]);
+
+        $dbmovies = Movie::all();
+
+		return view('admin.quotes.edit', ['quote' => $quote, 'movies' => $dbmovies]);
 	}
 
 	public function update(Quote $quote)

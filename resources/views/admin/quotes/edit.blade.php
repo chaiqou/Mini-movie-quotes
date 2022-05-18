@@ -11,10 +11,7 @@
                 <x-form.label name='movie' />
 
                 <select name="movie_id" id="movie_id">
-                    @php
-                        $movies = \App\Models\Movie::all();
 
-                    @endphp
 
                     @foreach ($movies as $movie)
                         <option value="{{ $movie->id }}">{{ $movie->title }}</option>
