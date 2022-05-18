@@ -13,13 +13,13 @@ class AuthController extends Controller
 
 	public function login()
 	{
-		// validate request
+
 		$attributes = request()->validate([
 			'email'    => 'required|email',
 			'password' => 'required',
 		]);
 
-		// attempt to authenticate and login admin , based on provided credentials
+
 
 		if (auth()->attempt($attributes))
 		{
@@ -27,7 +27,7 @@ class AuthController extends Controller
 			return redirect()->route('dashboard');
 		}
 
-		// failed auth
+
 
 		throw ValidationException::withMessages(['email' => 'Your provided credentials could not be verified.']);
 	}

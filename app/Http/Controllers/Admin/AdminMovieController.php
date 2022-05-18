@@ -51,7 +51,7 @@ class AdminMovieController extends Controller
 
 		if (isset($attrubutes['image_path']))
 		{
-			$attrubutes['image_path'] = request()->file('image_path')->store('images'); // if validated store image in disk
+			$attrubutes['image_path'] = request()->file('image_path')->store('images');
 		}
 
 		$movie->update($attrubutes);

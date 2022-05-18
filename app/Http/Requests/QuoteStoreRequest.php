@@ -24,16 +24,11 @@ class QuoteStoreRequest extends FormRequest
 	 */
 	public function rules()
 	{
-		$rules = [
-			'quote.en' => 'required',
-			'movie_id' => ['required', 'numeric'],
-		];
 
-		foreach (config('app.available_locales') as $locale)
-		{
-			$rules['quote.' . $locale] = 'string';
-		}
-
-		return $rules;
-	}
+        return [
+            'quote.en' => 'required',
+            'quote.ka' => 'required',
+            'movie_id' => 'required|numeric',
+        ];
+}
 }
