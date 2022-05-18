@@ -27,7 +27,7 @@ class AdminQuoteController extends Controller
 		$quote->setTranslations('quote', $request->input('quote'));
 		$quote->save();
 
-		return redirect('/');
+		return redirect()->route('home');
 	}
 
 	public function edit(Quote $quote)
@@ -43,7 +43,7 @@ class AdminQuoteController extends Controller
 		]);
 
 		$quote->update($attrubutes);
-		return redirect('/quotes');
+		return redirect()->route('quotes');
 	}
 
 	public function destroy(Quote $quote)

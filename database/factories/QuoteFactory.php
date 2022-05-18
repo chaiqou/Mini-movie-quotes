@@ -18,7 +18,7 @@ class QuoteFactory extends Factory
 	public function definition()
 	{
 		$moviesPath = Movie::all()->pluck('id')->toArray();
-		// $imagePaths = ['images/matrix.jpg', 'images/taxi.jpg', 'images/nobody.jpg', 'images/joker.jpg'];
+
 
 		return [
 			'quote'      => $this->faker->text(),

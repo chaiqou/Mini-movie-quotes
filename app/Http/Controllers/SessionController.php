@@ -24,7 +24,7 @@ class SessionController extends Controller
 		if (auth()->attempt($attributes))
 		{
 			session()->regenerate();
-			return redirect('/dashboard');
+			return redirect()->route('dashboard');
 		}
 
 		// failed auth
@@ -35,6 +35,6 @@ class SessionController extends Controller
 	public function destroy()
 	{
 		auth()->logout();
-		return redirect('/');
+		return redirect()->route('home');
 	}
 }

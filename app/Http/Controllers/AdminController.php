@@ -28,7 +28,7 @@ class AdminController extends Controller
 		$movie->setTranslations('title', $request->input('title'));
 		$movie->save();
 
-		return redirect('/quotes/create');
+		return redirect()->route('quote.create');
 	}
 
 	public function edit(Movie $movie)
@@ -45,11 +45,11 @@ class AdminController extends Controller
 
 		if (isset($attrubutes['image_path']))
 		{
-			$attrubutes['image_path'] = request()->file('image_path')->store('images');
+			$attrubutes['image_path'] = request()->file('image_path')->store('images'); // if validated store image in disk
 		}
 
 		$movie->update($attrubutes);
-		return redirect('/movies');
+		return redirect()->route('movies');
 	}
 
 	public function destroy(Movie $movie)
