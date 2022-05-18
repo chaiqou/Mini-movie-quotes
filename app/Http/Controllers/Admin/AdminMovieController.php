@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests\MovieStoreRequest;
 use App\Models\Movie;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\MovieUpdateRequest;
+use Illuminate\Http\RedirectResponse;
 
 class AdminMovieController extends Controller
 {
@@ -20,7 +22,7 @@ class AdminMovieController extends Controller
 		return view('admin.movies.create');
 	}
 
-	public function store(MovieStoreRequest $request)
+	public function store(MovieStoreRequest $request): RedirectResponse
 	{
 
          $movie = Movie::create([
@@ -43,23 +45,22 @@ class AdminMovieController extends Controller
 		return view('admin.movies.edit', ['movie' => $movie]);
 	}
 
-	public function update(Movie $movie)
+	public function update(MovieUpdateRequest $request,Movie $movie): RedirectResponse
 	{
-		$attrubutes = request()->validate([
-			'title'      => 'required',
-			'image_path' => 'image',
-		]);
 
-		if (isset($attrubutes['image_path']))
+
+        $validated = $request->validated();
+
+		if (isset($validated['image_path']))
 		{
-			$attrubutes['image_path'] = request()->file('image_path')->store('images');
+			$validated['image_path'] = request()->file('image_path')->store('images');
 		}
 
-		$movie->update($attrubutes);
+		$movie->update($validated);
 		return redirect()->route('movies');
 	}
 
-	public function destroy(Movie $movie)
+	public function destroy(Movie $movie): RedirectResponse
 	{
 		$movie->delete();
 		return redirect(asset('/movies'));

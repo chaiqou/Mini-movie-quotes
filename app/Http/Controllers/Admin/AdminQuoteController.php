@@ -7,6 +7,8 @@ use App\Models\Quote;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\QuoteStoreRequest;
+use App\Http\Requests\QuoteUpdateRequest;
+use Illuminate\Http\RedirectResponse;
 
 class AdminQuoteController extends Controller
 {
@@ -24,7 +26,7 @@ class AdminQuoteController extends Controller
 		return view('admin.quotes.create', ['movies' => $dbmovies]);
 	}
 
-	public function store(QuoteStoreRequest $request)
+	public function store(QuoteStoreRequest $request): RedirectResponse
 	{
 		Quote::create([
 			'movie_id' => $request->movie_id,
@@ -43,18 +45,16 @@ class AdminQuoteController extends Controller
 		return view('admin.quotes.edit', ['quote' => $quote, 'movies' => $dbmovies]);
 	}
 
-	public function update(Quote $quote)
+	public function update(QuoteUpdateRequest $request,Quote $quote): RedirectResponse
 	{
-		$attrubutes = request()->validate([
-			'quote'    => 'required',
-			'movie_id' => 'required|exists:movies,id',
-		]);
 
-		$quote->update($attrubutes);
+        $validated = $request->validated();
+
+		$quote->update($validated);
 		return redirect()->route('quotes');
 	}
 
-	public function destroy(Quote $quote)
+	public function destroy(Quote $quote): RedirectResponse
 	{
 		$quote->delete();
 		return redirect(asset('/quotes'));
