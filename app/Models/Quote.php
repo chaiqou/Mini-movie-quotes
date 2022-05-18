@@ -12,9 +12,8 @@ class Quote extends Model
 
 	use HasTranslations;
 
+	protected $guarded = ['id'];
 	public $translatable = ['quote'];
-
-	// Relationship to Movie
 
 	public function movie()
 	{

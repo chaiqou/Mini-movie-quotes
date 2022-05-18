@@ -9,7 +9,7 @@ class QuoteController extends Controller
 {
 	public function index(Movie $movie)
 	{
-		$quote = Quote::get()->where('movie_id', '=', $movie->id);
+		$quote = Quote::where('movie_id', $movie->id)->get();
 		return view('listings', ['quote' => $quote, 'movie' => $movie]);
 	}
 }

@@ -5,14 +5,14 @@ namespace App\Console\Commands;
 use App\Models\User;
 use Illuminate\Console\Command;
 
-class CreateAdminCommand extends Command
+class CreateAdmin extends Command
 {
 	/**
 	 * The name and signature of the console command.
 	 *
 	 * @var string
 	 */
-	protected $signature = 'make:admin {--username=} {--email=} {--password=}';
+	protected $signature = 'create:admin {--username=} {--email=} {--password=}';
 
 	/**
 	 * The console command description.
@@ -38,6 +38,6 @@ class CreateAdminCommand extends Command
 			'password'     => bcrypt($password),
 		]);
 
-		$this->info('Admin successfully created ^_^  ' . '  email:  ' . $email . '  username:  ' . $username . '  password:  ' . $password);
+		$this->info("Admin successfully created ^_^ email: $email username: $username password: $password");
 	}
 }

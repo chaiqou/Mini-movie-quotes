@@ -4,14 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Validation\ValidationException;
 
-class SessionController extends Controller
+class AuthController extends Controller
 {
-	public function create()
+	public function index()
 	{
-		return view('sessions.create');
+		return view('auth.login');
 	}
 
-	public function store()
+	public function login()
 	{
 		// validate request
 		$attributes = request()->validate([
@@ -32,7 +32,7 @@ class SessionController extends Controller
 		throw ValidationException::withMessages(['email' => 'Your provided credentials could not be verified.']);
 	}
 
-	public function destroy()
+	public function logout()
 	{
 		auth()->logout();
 		return redirect()->route('home');

@@ -13,5 +13,7 @@ class DatabaseSeeder extends Seeder
 	 */
 	public function run()
 	{
+		// MovieSeeder::class,
+		// QuoteSeeder::class,
 	}
 }

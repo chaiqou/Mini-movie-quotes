@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\MovieStoreRequest;
 use App\Models\Movie;
+use App\Http\Controllers\Controller;
 
-class AdminController extends Controller
+class AdminMovieController extends Controller
 {
 	public function index()
 	{
@@ -21,12 +22,17 @@ class AdminController extends Controller
 
 	public function store(MovieStoreRequest $request)
 	{
+		$imagePath = request()->file('image_path')->store('images');
 		$movie = new Movie;
-		$imagePath = request()->file('image_path')->store('images'); // return path where the file stored
 		$movie->image_path = $imagePath;
-
 		$movie->setTranslations('title', $request->input('title'));
 		$movie->save();
+
+// Mo// vie::create()[]
+// ''// image_path=> ...,
+// ;t// i'title' => ...,
+// //
+
 
 		return redirect()->route('quote.create');
 	}

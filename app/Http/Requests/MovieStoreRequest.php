@@ -24,16 +24,10 @@ class MovieStoreRequest extends FormRequest
 	 */
 	public function rules()
 	{
-		$rules = [
-			'title.en'   => 'required',
-			'image_path' => ['required', 'image'],
+		return [
+			'title.en'   => 'required|string',
+			'title.ka'   => 'string',
+			'image_path' => 'required|image',
 		];
-
-		foreach (config('app.available_locales') as $locale)
-		{
-			$rules['title.' . $locale] = 'string';
-		}
-
-		return $rules;
 	}
 }

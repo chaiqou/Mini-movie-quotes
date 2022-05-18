@@ -1,14 +1,15 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\QuoteStoreRequest;
 use App\Models\Quote;
-use Illuminate\Validation\Rule;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\QuoteStoreRequest;
 
 class AdminQuoteController extends Controller
 {
-	public function index()
+    public function index()
 	{
 		return view('admin.quotes.index', [
 			'quotes' => Quote::latest()->paginate(2),
@@ -22,10 +23,11 @@ class AdminQuoteController extends Controller
 
 	public function store(QuoteStoreRequest $request)
 	{
-		$quote = new Quote;
-		$quote->movie_id = request()->movie_id;
-		$quote->setTranslations('quote', $request->input('quote'));
-		$quote->save();
+		Quote::create([
+			'movie_id' => $request->movie_id,
+			'quote' => $request->quote
+		]);
+
 
 		return redirect()->route('home');
 	}
@@ -39,7 +41,7 @@ class AdminQuoteController extends Controller
 	{
 		$attrubutes = request()->validate([
 			'quote'    => 'required',
-			'movie_id' => ['required', Rule::exists('movies', 'id')],
+			'movie_id' => 'required|exists:movies,id',
 		]);
 
 		$quote->update($attrubutes);

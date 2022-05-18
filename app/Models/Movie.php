@@ -12,10 +12,10 @@ class Movie extends Model
 
 	use HasTranslations;
 
+	protected $guarded = ['id'];
 	public $translatable = ['title'];
 
-	// Relationship with Quote
-	public function quote()
+	public function quotes()
 	{
 		return $this->hasMany(Quote::class);
 	}

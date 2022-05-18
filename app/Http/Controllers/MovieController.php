@@ -8,7 +8,7 @@ class MovieController extends Controller
 {
 	public function index()
 	{
-		$quote = Quote::inRandomOrder()->first(); // get random quote
+		$quote = Quote::inRandomOrder()->first();
 		return view('home', ['quote' => $quote]);
 	}
 }

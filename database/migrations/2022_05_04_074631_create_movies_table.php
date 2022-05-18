@@ -14,7 +14,7 @@ return new class extends Migration {
 	{
 		Schema::create('movies', function (Blueprint $table) {
 			$table->id();
-			$table->text('title');
+			$table->string('title');
 			$table->text('image_path');
 			$table->timestamps();
 		});
