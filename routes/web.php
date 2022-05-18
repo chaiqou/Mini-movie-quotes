@@ -2,16 +2,21 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\QuoteController;
+use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\Admin\AdminMovieController;
 use App\Http\Controllers\Admin\AdminQuoteController;
 
-	Route::get('login', [AuthController::class, 'index'])->name('login.create');
-	Route::post('login', [AuthController::class, 'login'])->name('login.store');
-	Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 
-	Route::group(['middleware' => ['check.locale','admin']], function () {
+
+
+	   Route::get('login', [AuthController::class, 'index'])->name('login.create');
+	   Route::post('login', [AuthController::class, 'login'])->name('login.store');
+	   Route::post('logout', [AuthController::class, 'logout'])->name('logout');
+
+	   Route::group(['middleware' => ['check.locale','admin']], function () {
 
 		Route::view('dashboard', 'dashboard')->name('dashboard');
 
@@ -34,13 +39,13 @@ use App\Http\Controllers\Admin\AdminQuoteController;
 
 	});
 
-    	// pages
-		Route::get('/', [MovieController::class, 'index'])->name('home');
-		Route::get('/{movie}', [QuoteController::class, 'index'])->name('movie');
 
-// set language locale
 
-Route::get('set-locale/{locale}', function ($locale) {
-	session()->put('locale', $locale);
-	return redirect()->back();
-})->middleware('check.locale')->name('locale.setting');
+        Route::get('/', [MovieController::class, 'index'])->name('home');
+        Route::get('/{movie}', [QuoteController::class, 'index'])->name('movie');
+
+
+
+        // set language locale
+
+        Route::get('set-locale/{locale}', [LanguageController::class, 'index'])->middleware('check.locale')->name('locale.setting');
