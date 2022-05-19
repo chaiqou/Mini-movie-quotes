@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Movie;
 use App\Models\Quote;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\QuoteStoreRequest;
 use App\Http\Requests\QuoteUpdateRequest;
@@ -13,7 +12,7 @@ use Illuminate\View\View;
 
 class QuoteController extends Controller
 {
-    public function index(): View
+	public function index(): View
 	{
 		return view('admin.quotes.index', [
 			'quotes' => Quote::latest()->paginate(2),
@@ -22,7 +21,7 @@ class QuoteController extends Controller
 
 	public function create(): View
 	{
-        $dbmovies = Movie::all();
+		$dbmovies = Movie::all();
 
 		return view('admin.quotes.create', ['movies' => $dbmovies]);
 	}
@@ -31,25 +30,22 @@ class QuoteController extends Controller
 	{
 		Quote::create([
 			'movie_id' => $request->movie_id,
-			'quote' => $request->quote
+			'quote'    => $request->quote,
 		]);
-
 
 		return redirect()->route('home');
 	}
 
 	public function edit(Quote $quote): View
 	{
-
-        $dbmovies = Movie::all();
+		$dbmovies = Movie::all();
 
 		return view('admin.quotes.edit', ['quote' => $quote, 'movies' => $dbmovies]);
 	}
 
-	public function update(QuoteUpdateRequest $request,Quote $quote): RedirectResponse
+	public function update(QuoteUpdateRequest $request, Quote $quote): RedirectResponse
 	{
-
-        $validated = $request->validated();
+		$validated = $request->validated();
 
 		$quote->update($validated);
 		return redirect()->route('quotes');

@@ -19,7 +19,6 @@ class QuoteFactory extends Factory
 	{
 		$moviesPath = Movie::all()->pluck('id')->toArray();
 
-
 		return [
 			'quote'      => $this->faker->text(),
 			'movie_id'   => $this->faker->randomElement($moviesPath),

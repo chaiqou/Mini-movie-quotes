@@ -17,5 +17,3 @@ class MovieSeeder extends Seeder
 		Movie::factory(2)->create();
 	}
 }
-
-

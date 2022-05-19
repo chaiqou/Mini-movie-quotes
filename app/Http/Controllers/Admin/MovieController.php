@@ -25,18 +25,10 @@ class MovieController extends Controller
 
 	public function store(MovieStoreRequest $request): RedirectResponse
 	{
-
-         $movie = Movie::create([
-             'image_path' => request()->file('image_path')->store('images'),
-             'title' => $request->title,
-          ]);
-
-         $movie->setTranslations('title', $request->input('title'));
-
-
-
-
-
+		$movie = Movie::create([
+			'image_path' => request()->file('image_path')->store('images'),
+			'title'      => $request->title,
+		]);
 
 		return redirect()->route('quote.create');
 	}
@@ -46,11 +38,9 @@ class MovieController extends Controller
 		return view('admin.movies.edit', ['movie' => $movie]);
 	}
 
-	public function update(MovieUpdateRequest $request,Movie $movie): RedirectResponse
+	public function update(MovieUpdateRequest $request, Movie $movie): RedirectResponse
 	{
-
-
-        $validated = $request->validated();
+		$validated = $request->validated();
 
 		if (isset($validated['image_path']))
 		{
@@ -63,7 +53,7 @@ class MovieController extends Controller
 
 	public function destroy(Movie $movie): RedirectResponse
 	{
-        ddd($movie);
+		ddd($movie);
 		$movie->delete();
 		return redirect(asset('/movies'));
 	}

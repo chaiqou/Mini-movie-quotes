@@ -16,14 +16,12 @@ class AuthController extends Controller
 
 	public function login(LoginRequest $request): RedirectResponse
 	{
-       $validated = $request->validated();
-        if (auth()->attempt($validated))
+		$validated = $request->validated();
+		if (auth()->attempt($validated))
 		{
 			session()->regenerate();
 			return redirect()->route('dashboard');
 		}
-
-
 
 		throw ValidationException::withMessages(['email' => 'Your provided credentials could not be verified.']);
 	}

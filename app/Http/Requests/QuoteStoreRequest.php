@@ -24,11 +24,10 @@ class QuoteStoreRequest extends FormRequest
 	 */
 	public function rules()
 	{
-
-        return [
-            'quote.en' => 'required',
-            'quote.ka' => 'required',
-            'movie_id' => 'required|numeric',
-        ];
-}
+		return [
+			'quote.en' => 'required',
+			'quote.ka' => 'required',
+			'movie_id' => 'required|numeric',
+		];
+	}
 }
