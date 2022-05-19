@@ -1,4 +1,5 @@
 <x-layout>
+
     @if ($quote)
         <a href="/login" class="text-white flex font-bold text-lg">{{ __('message.login') }}</a>
 
@@ -7,6 +8,7 @@
                 class="rounded-xl mt-24 mb-16 h-full min-w-full m-auto" width="700" />
 
             <x-languages />
+
             <p class="mb-14 text-2xl text-white ">
                 {{ $quote->quote }}
             </p>

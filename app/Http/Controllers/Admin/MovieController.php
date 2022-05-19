@@ -7,17 +7,18 @@ use App\Models\Movie;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MovieUpdateRequest;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\View\View;
 
-class AdminMovieController extends Controller
+class MovieController extends Controller
 {
-	public function index()
+	public function index(): View
 	{
 		return view('admin.movies.index', [
 			'movies' => Movie::latest()->paginate(10),
 		]);
 	}
 
-	public function create()
+	public function create(): View
 	{
 		return view('admin.movies.create');
 	}
@@ -40,7 +41,7 @@ class AdminMovieController extends Controller
 		return redirect()->route('quote.create');
 	}
 
-	public function edit(Movie $movie)
+	public function edit(Movie $movie): View
 	{
 		return view('admin.movies.edit', ['movie' => $movie]);
 	}
@@ -62,6 +63,7 @@ class AdminMovieController extends Controller
 
 	public function destroy(Movie $movie): RedirectResponse
 	{
+        ddd($movie);
 		$movie->delete();
 		return redirect(asset('/movies'));
 	}

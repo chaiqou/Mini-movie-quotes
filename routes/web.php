@@ -6,8 +6,8 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\QuoteController;
 use App\Http\Controllers\LanguageController;
-use App\Http\Controllers\Admin\AdminMovieController;
-use App\Http\Controllers\Admin\AdminQuoteController;
+use App\Http\Controllers\Admin\MovieController as AdminMovieController;
+use App\Http\Controllers\Admin\QuoteController as AdminQuoteController;
 
 
 
@@ -16,7 +16,7 @@ use App\Http\Controllers\Admin\AdminQuoteController;
 	   Route::post('login', [AuthController::class, 'login'])->name('login.store');
 	   Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 
-	   Route::group(['middleware' => ['check.locale','admin']], function () {
+	   Route::group(['middleware' => 'check.locale'], function () {
 
 		Route::view('dashboard', 'dashboard')->name('dashboard');
 
@@ -37,15 +37,16 @@ use App\Http\Controllers\Admin\AdminQuoteController;
 		Route::get('/quotes/{quote}/edit', [AdminQuoteController::class, 'edit'])->name('quote.edit');
 
 
-	});
-
-
-
         Route::get('/', [MovieController::class, 'index'])->name('home');
         Route::get('/{movie}', [QuoteController::class, 'index'])->name('movie');
 
+	});
 
 
-        // set language locale
+     // set language locale
 
         Route::get('set-locale/{locale}', [LanguageController::class, 'index'])->middleware('check.locale')->name('locale.setting');
+
+
+
+

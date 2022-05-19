@@ -9,17 +9,18 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\QuoteStoreRequest;
 use App\Http\Requests\QuoteUpdateRequest;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\View\View;
 
-class AdminQuoteController extends Controller
+class QuoteController extends Controller
 {
-    public function index()
+    public function index(): View
 	{
 		return view('admin.quotes.index', [
 			'quotes' => Quote::latest()->paginate(2),
 		]);
 	}
 
-	public function create()
+	public function create(): View
 	{
         $dbmovies = Movie::all();
 
@@ -37,7 +38,7 @@ class AdminQuoteController extends Controller
 		return redirect()->route('home');
 	}
 
-	public function edit(Quote $quote)
+	public function edit(Quote $quote): View
 	{
 
         $dbmovies = Movie::all();

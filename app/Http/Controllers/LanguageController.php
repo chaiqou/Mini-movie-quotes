@@ -8,8 +8,9 @@ use Illuminate\Http\Request;
 
 class LanguageController extends Controller
 {
-    public function index($locale): RedirectResponse
+    public function index(string $locale): RedirectResponse
     {
+
         session()->put('locale', $locale);
         return redirect()->back();
     }

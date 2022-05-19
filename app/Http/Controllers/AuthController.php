@@ -5,25 +5,19 @@ namespace App\Http\Controllers;
 use App\Http\Requests\LoginRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Validation\ValidationException;
+use Illuminate\View\View;
 
 class AuthController extends Controller
 {
-	public function index()
+	public function index(): View
 	{
 		return view('auth.login');
 	}
 
 	public function login(LoginRequest $request): RedirectResponse
 	{
-
-
-
-        $validated = $request->validated();
-
-
-
-
-		if (auth()->attempt($validated))
+       $validated = $request->validated();
+        if (auth()->attempt($validated))
 		{
 			session()->regenerate();
 			return redirect()->route('dashboard');
