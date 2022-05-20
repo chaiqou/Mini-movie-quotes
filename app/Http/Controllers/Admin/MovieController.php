@@ -53,7 +53,7 @@ class MovieController extends Controller
 
 	public function destroy(Movie $movie): RedirectResponse
 	{
-		ddd($movie);
+
 		$movie->delete();
 		return redirect(asset('/movies'));
 	}
